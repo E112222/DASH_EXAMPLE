@@ -4,15 +4,15 @@
 from dash import Dash, Output, Input, State, html
 
 
-from data_processing import import_raw_data, get_timeline_data
+#from data_processing import import_raw_data, get_timeline_data
 from config import BACKGROUND_COLOR
 from ui import create_header, create_filter_button,create_timeline_fig, create_slider_selector, create_input_div
 from callbacks import toggle_flagged
 
 
 ## =============================== LOAD ============================== ##
-df = import_raw_data()
-data_timeline = get_timeline_data(df)
+#df = import_raw_data()
+#data_timeline = get_timeline_data(df)
 
 app = Dash(__name__)
 app.title = "Calendrier SEAO"
@@ -66,3 +66,4 @@ def toggle_flagged_callback(n_clicks, threshold):
 ## ======================== MAIN ======================== ##
 if __name__ == '__main__':
     app.run(debug=True)
+
