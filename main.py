@@ -1,4 +1,15 @@
+import subprocess
+import sys
 
+
+#Verifie si dash et plotly sont installés et les installe sinon
+def ensure_package(package):
+    try:
+        __import__(package)
+    except ImportError:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+ensure_package("dash")
+ensure_package("plotly")
 
 
 from dash import Dash, Output, Input, State, html
@@ -66,4 +77,5 @@ def toggle_flagged_callback(n_clicks, threshold):
 ## ======================== MAIN ======================== ##
 if __name__ == '__main__':
     app.run(debug=True)
+
 
